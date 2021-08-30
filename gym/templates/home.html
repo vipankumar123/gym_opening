@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>GYM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default" class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MUSCLE Gym</a>
+    </div>
+    <ul class="nav navbar-nav" class="navbar navbar-dark bg-primary">
+
+      {% if not request.user.is_staff %}
+
+      <li class="active"><a href="/gym/admin1/">Home</a></li>
+      <li class="nav-item"><a href="/gym/admin2/">About</a></li>
+      <li><a href="/gym/admin3/">Contact</a></li>
+      <li><a href="/gym/admin5/">register</a></li>
+      <li><a href="/gym/admin4/">Login</a></li>
+     
+      {% endif %}
+
+
+      {% if  request.user.is_staff %}
+
+      <li class="nev-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle='dropdown' href="/gym/admin1/">Home</a></li>
+      <li class="nev-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle='dropdown' href="#">Enquiry</a>
+      <div class='dropdown-menu'>
+        <a class="dropdown-item" href="/gym/admin6/">Add Enquiry</a><br>
+        <a class="dropdown-item" href="/gym/admin7/">view Enquiry</a>
+
+      </div>
+      <li class="nev-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle='dropdown' href="#">Plan</a>
+       <div class='dropdown-menu'>
+        <a class="dropdown-item" href="/gym/admin12/">Add plan</a><br>
+        <a class="dropdown-item" href="/gym/admin13/">view plan</a>
+
+      </div>
+       <li class="nev-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle='dropdown' href="#">Equipments</a>
+       <div class='dropdown-menu'>
+        <a class="dropdown-item" href="/gym/admin9/">Add Equipment</a><br>
+        <a class="dropdown-item" href="/gym/admin10/">view Equipment</a>
+
+      </div>
+       </li> 
+       <li class="nev-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle='dropdown' href="#">Members</a>
+       <div class='dropdown-menu'>
+        <a class="dropdown-item" href="/gym/admin15/">Add Memberss</a><br>
+        <a class="dropdown-item" href="/gym/admin16/">view Memberss</a>
+
+      </div>
+       </li> 
+
+
+       <li class="nav-item"><a class="nav-link" href="/gym/admin4/">logout</a>
+         
+       </li>
+
+      
+
+
+            {% endif %}
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>FITNESS GYM</h3>
+</div>
+
+<table width="80%">
+  <tr>
+    <td>{{en}}</td>
+    <td>{{eq}}</td>
+    <td>{{pl}}</td>
+    <td>{{me}}</td>
+  </tr>
+  
+    <tr>&nbsp&nbsp&nbsp
+    <td><button><h4><a href="/gym/admin7/">Enquires</a></h4></button></td>
+    <td><button><h4><a href="/gym/admin10/">Equipments</a></h4></button></th>
+    <td><button><h4><a href="/gym/admin13/">Plan&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></h4></button></td>
+    <td><button><h4><a href="/gym/admin16/">Member&nbsp&nbsp&nbsp&nbsp&nbsp</a></h4></button></td>
+    </tr>
+
+   
+  
+
+</table>
+<h5>&nbsp&nbsp&nbsp</h5>
+
+        <img src="{% static 'images/gym.jpg' %}" alt="no image found">
+        <img src="{% static 'images/gym1.jpg' %}" alt="no image found">
+
+
+</body>
+</html>
+&nbsp
